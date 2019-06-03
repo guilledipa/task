@@ -1,6 +1,8 @@
 // https://github.com/gophercises/task
 package main
 
-func main() {
+import "github.com/guilledipa/task/cmd"
 
+func main() {
+	cmd.Execute()
 }

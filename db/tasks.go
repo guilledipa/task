@@ -4,6 +4,7 @@ import (
 	"encoding/binary"
 	"time"
 
+	homedir "github.com/mitchellh/go-homedir"
 	"github.com/coreos/bbolt"
 )
 

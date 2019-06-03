@@ -4,13 +4,15 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path/filepath"
 	"proyectos/task/db"
 
+	homedir "github.com/mitchellh/go-homedir"
 	"github.com/spf13/cobra"
 )
 
 func init() {
-	rootCmd.Flags().StringVarP(&dbPath, "db_path", "d", "~/tasks.db", "Database path")
+	rootCmd.Flags().StringVarP(&dbPath, "db_path", "d", "tasks.db", "Database path")
 	cobra.OnInitialize(initDB)
 }
 
@@ -31,7 +33,14 @@ func Execute() {
 }
 
 func initDB() {
-	if err := db.Init(dbPath); err != nil {
+	// Find home directory.
+	home, err := homedir.Dir()
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
+	dbAtHome := filepath.Join(home, dbPath)
+	if err := db.Init(dbAtHome); err != nil {
 		fmt.Println(err.Error())
 		os.Exit(1)
 	}

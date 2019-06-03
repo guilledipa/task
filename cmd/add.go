@@ -2,7 +2,9 @@ package cmd
 
 import (
 	"fmt"
+	"strings"
 
+	"github.com/guilledipa/task/db"
 	"github.com/spf13/cobra"
 )
 
@@ -14,6 +16,12 @@ var addCmd = &cobra.Command{
 	Use:   "add",
 	Short: "Add a new task.",
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("add subcommand has been called")
+		task := strings.Join(args, " ")
+		_, err := db.CreateTask(task)
+		if err != nil {
+			fmt.Println("add went wrong:", err)
+			return
+		}
+		fmt.Printf("Added \"%s\" to your task list.\n", task)
 	},
 }

@@ -5,8 +5,8 @@ import (
 	"log"
 	"os"
 	"path/filepath"
-	"proyectos/task/db"
 
+	"github.com/guilledipa/task/db"
 	homedir "github.com/mitchellh/go-homedir"
 	"github.com/spf13/cobra"
 )

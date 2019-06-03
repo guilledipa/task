@@ -9,8 +9,8 @@ import (
 var rootCmd = &cobra.Command{
 	Use:   "task",
 	Short: "task is a CLI for managing your TODOs.",
-	Long: `A gophercises excercise #7
-				https://github.com/gophercises/task`,
+	Long: `A gophercises excercise #7:
+	https://github.com/gophercises/task`,
 }
 
 // Execute will run rootCmd after being called

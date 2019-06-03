@@ -2,8 +2,6 @@
 package main
 
 import (
-	"flag"
-
 	"github.com/guilledipa/task/cmd"
 )
 

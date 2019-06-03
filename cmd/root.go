@@ -17,7 +17,7 @@ var dbPath string
 
 // Execute will run rootCmd after being called
 func Execute() {
-	rootCmd.Flags().StringVarP(&dbPath, "db_path", "s", "~/tasks.db", "Database path")
+	rootCmd.Flags().StringVarP(&dbPath, "db_path", "d", "~/tasks.db", "Database path")
 	if err := rootCmd.Execute(); err != nil {
 		log.Fatalf("Root cmd: %v.", err)
 	}
